@@ -13,13 +13,14 @@ class AuthRoutes < Application
         r.is do
           params = JSON.parse(r.body.read)
           user_params = r.validate_with!(validation: UserParamsContract, params: params)
-
-          result = Users::CreateService.call(**user_params)
+          result = Users::CreateService.call(**user_params.to_h)
 
           if result.success?
             response.status = :created
+            nil
           else
-            error_response(result.user, :unprocessable_entity)
+            response.status = :unprocessable_entity
+            error_response(result.user)
           end
         end
       end
