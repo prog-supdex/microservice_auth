@@ -5,11 +5,15 @@ namespace :db do
   DB_MIGRATION_PATH = File.expand_path('../../db/migrations', __dir__).freeze
 
   task create: :settings do
-    DB.execute("CREATE DATABASE #{Settings.db.database}")
+    db = Sequel.connect(Settings.db.to_hash)
+
+    db.execute("CREATE DATABASE #{Settings.db.database}")
   end
 
   task drop: :settings do
-    DB.execute("DROP DATABASE IF EXISTS #{Settings.db.database}")
+    db = Sequel.connect(Settings.db.to_hash)
+
+    db.execute("DROP DATABASE IF EXISTS #{Settings.db.database}")
   end
 
   desc 'Prints current schema version'
