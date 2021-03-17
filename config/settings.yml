@@ -1,0 +1,8 @@
+db:
+  adapter: postgresql
+  host: localhost
+  user: postgres
+  password: password
+  port: 5432
+pagination:
+  page_size: 10

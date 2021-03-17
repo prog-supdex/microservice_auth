@@ -1,0 +1,10 @@
+ru:
+  models:
+    errors:
+      ad:
+        title:
+          blank: 'Укажите название'
+        description:
+          blank: 'Укажите описание'
+        city:
+          blank: 'Укажите город'
