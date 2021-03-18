@@ -16,8 +16,7 @@ module UserSessions
     private
 
     def validate
-      puts @user.all[0].inspect
-      return fail_t!(:unauthorized) unless @user&.authenticate(@password)
+      fail_t!(:unauthorized) unless @user&.authenticate(@password)
     end
 
     def create_session

@@ -10,9 +10,6 @@ module Users
     attr_reader :user
 
     def call
-      puts 'create service'
-      puts @name.inspect
-
       @user = ::User.new(
         name: @name,
         email: @email,
