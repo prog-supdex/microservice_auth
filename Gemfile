@@ -13,6 +13,7 @@ gem 'dry-validation', '~> 1.6'
 gem 'i18n', '~> 1.8', '>= 1.8.9'
 gem 'jwt', '~> 1.5', '>= 1.5.4'
 gem 'sequel_secure_password', '~> 0.2.15'
+gem 'sequel-seed', '~> 1.1', '>= 1.1.2'
 
 group :development do
   gem 'dotenv', '~> 2.7', '>= 2.7.6'
