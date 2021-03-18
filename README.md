@@ -1,6 +1,6 @@
-# Micro Ads
+# Micro Auth
 
-Приложение "микросервис Ads"
+Приложение "микросервис Auth"
 
 # Зависимости
 
@@ -25,6 +25,7 @@ git clone git@github.com:prog-supdex/micro_ads.git && cd micro_ads
 bundle install
 rake db:create
 rake:db:migrate
+rake db:seed
 ```
 
 3. Запустите приложение:
@@ -36,7 +37,7 @@ bundle exec puma
 # TODOLIST
 1. Покрыть код тестами(rspec)
 2. Разобраться с error_handler plugin. Чтобы вызывалось дефолтное поведение(отображение ошибок), если exception не совпал с теми, что указаны в блоке
-3. Перейти на ROM
+3. Изменить подгрузку необходимых библиотек для db/seeds
 
 ....
 Список дополняется
