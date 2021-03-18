@@ -4,7 +4,7 @@ class User < Sequel::Model
 
   NAME_FORMAT = %r{\A\w+\z}
 
-  one_to_many :sessions, class_name: 'UserSession'
+  one_to_many :sessions, class_name: :UserSession
 
   add_association_dependencies sessions: :delete
 
