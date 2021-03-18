@@ -16,7 +16,7 @@
 1. Склонируйте репозиторий:
 
 ```
-git clone git@github.com:prog-supdex/micro_ads.git && cd micro_ads
+git clone git@github.com:prog-supdex/microservice_auth.git && cd micro_ads
 ```
 
 2. Установите зависимости и создайте базу данных:
