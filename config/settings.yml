@@ -6,3 +6,5 @@ db:
   port: 5432
 pagination:
   page_size: 10
+secrets:
+  secret_key_base:

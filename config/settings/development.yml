@@ -1,2 +1,4 @@
 db:
   database: micro_auth_development
+secrets:
+  secret_key_base: 5031fe3d989c6d1537a013fa6e739da23463fdaec3b70137d828e36ace221bd0
