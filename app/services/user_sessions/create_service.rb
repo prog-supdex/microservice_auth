@@ -4,7 +4,7 @@ module UserSessions
 
     option :email
     option :password
-    option :user, default: proc { User.where(email: @email).eager_graph(:sessions) }, reader: false
+    option :user, default: proc { User.find(email: @email) }, reader: false
 
     attr_reader :session
 
@@ -17,13 +17,14 @@ module UserSessions
 
     def validate
       puts @user.all[0].inspect
-      return fail_t!(:unauthorized) unless @user.all[0]&.authenticate(@password)
+      return fail_t!(:unauthorized) unless @user&.authenticate(@password)
     end
 
     def create_session
-      @session = @user.all[0].add_session(UserSession.new)
+      @session = UserSession.new
+
       if @session.valid?
-        @session.save
+        @user.add_session(@session)
       else
         fail!(@session.errors)
       end
