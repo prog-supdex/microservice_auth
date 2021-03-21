@@ -3,7 +3,7 @@ class AuthRoutes < Application
   plugin :auth
 
   route do |r|
-    r.post true do
+    r.post ['', true] do
       result = Auth::FetchUserService.call(uuid: extracted_token['uuid'])
 
       if result.success?
