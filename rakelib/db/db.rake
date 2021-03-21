@@ -34,7 +34,7 @@ namespace :db do
   end
 
   desc 'Perform migration up to latest migration available'
-  task migrate: :settings do |t, args|
+  task :migrate do |t, args|
     db_migrate(args[:version] || db_migrations.last)
   end
 
