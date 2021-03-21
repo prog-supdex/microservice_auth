@@ -16,8 +16,8 @@ class User < Sequel::Model
     validates_presence :email,
                        message: I18n.t(:blank, scope: 'model.errors.user.email')
 
-    validates_format NAME_FORMAT, :name, message: I18n.t(:format, scope: 'model.errors.user.name')
+    validates_format(NAME_FORMAT, :name, message: I18n.t(:format, scope: 'model.errors.user.name'))
 
-    validates_presence :password, message: I18n.t(:blank, scope: 'model.errors.user.password') if new?
+    validates_presence(:password, message: I18n.t(:blank, scope: 'model.errors.user.password')) if new?
   end
 end
