@@ -2,6 +2,7 @@ module ApplicationLoader
   extend self
 
   def load_app!
+    load_root_path
     load_env_if_development
     init_config
     init_db
@@ -35,6 +36,10 @@ module ApplicationLoader
 
   def init_app
     require_dir 'config/initializers'
+  end
+
+  def load_root_path
+    require_file 'app/services/root_service'
   end
 
   def require_file(path)

@@ -7,5 +7,5 @@ class Application < Roda
   plugin :api_errors
   plugin :head
 
-  opts[:root] = File.expand_path('../', __dir__)
+  opts[:root] = RootService::PATH
 end
