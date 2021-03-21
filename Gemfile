@@ -15,6 +15,13 @@ gem 'jwt', '~> 1.5', '>= 1.5.4'
 gem 'sequel_secure_password', '~> 0.2.15'
 gem 'sequel-seed', '~> 1.1', '>= 1.1.2'
 
+group :development, :test do
+  gem 'rack-test', '~> 1.1'
+  gem 'rspec', '~> 3.10'
+  gem 'factory_bot', '~> 6.1'
+  gem 'database_cleaner-sequel', '~> 2.0'
+end
+
 group :development do
   gem 'dotenv', '~> 2.7', '>= 2.7.6'
   gem 'rubocop', '~> 1.11'
