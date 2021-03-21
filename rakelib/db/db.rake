@@ -6,13 +6,10 @@ namespace :db do
   require 'sequel/core'
   Sequel.extension :migration
 
+  require_relative '../../app/services/root_service'
   require 'config'
   require_relative '../../config/initializers/config'
 
-  DB_MIGRATION_PATH = File.expand_path('../../db/migrations', __dir__).freeze
-  DB_SEED_PATH = File.expand_path('../../db/seeds', __dir__).freeze
-  DB_SCHEMA_PATH = File.expand_path('../../db', __dir__).freeze
-  DB_SCHEMA_FILE_NAME = 'schema.rb'.freeze
   DB = Sequel.connect(Settings.db.to_hash)
 
   task :create do
@@ -64,15 +61,15 @@ namespace :db do
     Sequel.extension :seed
     Sequel::Seed.setup(ENV['RACK_ENV'])
 
-    Sequel::Seeder.apply(DB, DB_SEED_PATH)
+    Sequel::Seeder.apply(DB, Settings.app.seed_folder_path)
   end
 
   namespace :schema do
     task :dump do
       DB.extension(:schema_dumper)
 
-      if Dir.exists?(DB_SCHEMA_PATH)
-        File.open(File.join(DB_SCHEMA_PATH, DB_SCHEMA_FILE_NAME).to_s, 'w') do |file|
+      if Dir.exists?(Settings.app.db_schema_folder_path)
+        File.open(File.join(Settings.app.db_schema_folder_path, Settings.app.schema_file_name).to_s, 'w') do |file|
           file << DB.dump_schema_migration(indexes: true, foreign_keys: true)
         end
 
@@ -83,12 +80,12 @@ namespace :db do
   end
 
   def db_migrations
-    Dir["#{DB_MIGRATION_PATH}/*.rb"].map { |f| File.basename(f) }.sort
+    Dir["#{Settings.app.migrations_folder_path}/*.rb"].map { |f| File.basename(f) }.sort
   end
 
   def db_migrate(version = db_migrations.last)
     puts "Migrating database to version #{version}"
-    Sequel::Migrator.run(DB, DB_MIGRATION_PATH, target: version.to_i)
+    Sequel::Migrator.run(DB, Settings.app.migrations_folder_path, target: version.to_i)
 
     Rake::Task['db:schema:dump'].execute
     Rake::Task['db:version'].execute

@@ -1,3 +1,8 @@
+app:
+  schema_file_name: 'schema.rb'
+  seed_folder_path: <%= "#{RootService::PATH}/db/seeds" %>
+  migrations_folder_path: <%= "#{RootService::PATH}/db/migrations" %>
+  db_schema_folder_path: <%= "#{RootService::PATH}/db" %>
 db:
   adapter: postgresql
   host: localhost
