@@ -1,18 +1,10 @@
 ru:
-  models:
+  model:
     errors:
-      ad:
-        title:
-          blank: 'Укажите название'
-        description:
-          blank: 'Укажите описание'
-        city:
-          blank: 'Укажите город'
-
       user:
         name:
           blank: 'Укажите ваше имя'
-          invalid: 'Укажите имя, используя буквы, цифры или символ подчёркивания'
+          format: 'Укажите имя, используя буквы, цифры или символ подчёркивания'
         email:
           blank: 'Укажите email'
         password:
