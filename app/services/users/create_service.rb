@@ -5,7 +5,6 @@ module Users
     option :name
     option :email
     option :password
-    option :password_confirmation
 
     attr_reader :user
 
@@ -13,8 +12,7 @@ module Users
       @user = ::User.new(
         name: @name,
         email: @email,
-        password: @password,
-        password_confirmation: @password_confirmation
+        password: @password
       )
 
       if @user.valid?
