@@ -8,6 +8,7 @@ module ApplicationLoader
     init_db
     require_app
     init_app
+    load_and_run_jobs
   end
 
   private
@@ -40,6 +41,12 @@ module ApplicationLoader
 
   def load_root_path
     require_file 'app/services/root_service'
+  end
+
+  def load_and_run_jobs
+    return if ENV['RACK_ENV'] == 'test'
+
+    require_dir 'background_jobs'
   end
 
   def require_file(path)
