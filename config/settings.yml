@@ -3,6 +3,8 @@ app:
   seed_folder_path: <%= "#{RootService::PATH}/db/seeds" %>
   migrations_folder_path: <%= "#{RootService::PATH}/db/migrations" %>
   db_schema_folder_path: <%= "#{RootService::PATH}/db" %>
+rabbitmq:
+  consumer_pool: 10
 db:
   adapter: postgresql
   host: localhost
