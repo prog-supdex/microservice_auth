@@ -2,7 +2,9 @@ class UserSessionRoutes < Application
   route do |r|
     r.post ['', true] do
       params = JSON.parse(r.body.read)
+
       session_params = r.validate_with!(validation: UserSessionParamsContract, params: params)
+
       result = UserSessions::CreateService.call(**session_params.to_h)
 
       if result.success?
