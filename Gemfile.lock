@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/prog-supdex/rack-ougai.git
+  revision: 58504a32acadca36b6b06a92ab5120ab6a4cbb90
+  branch: add_body_to_log
+  specs:
+    rack-ougai (0.2.1)
+      ougai (~> 1.5)
+      rack (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -77,9 +86,6 @@ GEM
     puma (5.2.2)
       nio4r (~> 2.0)
     rack (2.2.3)
-    rack-ougai (0.2.1)
-      ougai (~> 1.5)
-      rack (~> 2.0)
     rack-request-id (0.0.4)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -142,7 +148,7 @@ DEPENDENCIES
   jwt (~> 1.5, >= 1.5.4)
   pg (~> 1.2, >= 1.2.3)
   puma (~> 5.0)
-  rack-ougai (~> 0.2.1)
+  rack-ougai (~> 0.2.1)!
   rack-request-id (~> 0.0.4)
   rack-test (~> 1.1)
   roda (>= 3.19)
