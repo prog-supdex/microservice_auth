@@ -2,7 +2,7 @@
 # но выходит дублирование, потому и определяю внутри одного configure и проверяю на environment
 Application.configure do |app|
   logger = Ougai::Logger.new(
-    "#{app.opts[:root]}/#{Settings.logger.path}",
+    app.development? ? STDOUT : "#{app.opts[:root]}/#{Settings.logger.path}",
     level: Settings.logger.level
   )
 
