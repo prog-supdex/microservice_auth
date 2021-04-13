@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/prog-supdex/rack-ougai.git
-  revision: 58504a32acadca36b6b06a92ab5120ab6a4cbb90
+  revision: 1f1430e437bbb0a1ed9734e08ae6d729ac161fd2
   branch: add_body_to_log
   specs:
     rack-ougai (0.2.1)
