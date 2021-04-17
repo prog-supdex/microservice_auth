@@ -1,10 +1,14 @@
 app:
+  name: 'auth'
   schema_file_name: 'schema.rb'
   seed_folder_path: <%= "#{RootService::PATH}/db/seeds" %>
   migrations_folder_path: <%= "#{RootService::PATH}/db/migrations" %>
   db_schema_folder_path: <%= "#{RootService::PATH}/db" %>
 rabbitmq:
   consumer_pool: 10
+logger:
+  path: log/app.log
+  level: info
 db:
   adapter: postgresql
   host: localhost
