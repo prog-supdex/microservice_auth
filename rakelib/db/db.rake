@@ -10,7 +10,7 @@ namespace :db do
   require 'config'
   require_relative '../../config/initializers/config'
 
-  DB = Sequel.connect(Settings.db.to_hash)
+  DB = Sequel.connect(Settings.db.url || Settings.db.to_hash)
 
   task :create do
     DB.execute("CREATE DATABASE #{Settings.db.database}")
