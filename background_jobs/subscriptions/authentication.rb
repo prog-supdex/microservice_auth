@@ -6,11 +6,7 @@ module Subscriptions
       @channel = RabbitMq.channel
       @queue = channel.queue('authentication')
       @reply_queue = channel.queue('auth_ads')
-
-      start
     end
-
-    private
 
     def start
       queue.subscribe do |_delivery_info, properties, payload|
@@ -33,4 +29,4 @@ module Subscriptions
   end
 end
 
-Subscriptions::Authentication.new
+Subscriptions::Authentication.new.start

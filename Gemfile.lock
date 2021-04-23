@@ -90,6 +90,7 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
+    rake (13.0.3)
     regexp_parser (2.1.1)
     rexml (3.2.4)
     roda (3.41.0)
@@ -151,6 +152,7 @@ DEPENDENCIES
   rack-ougai (~> 0.2.1)!
   rack-request-id (~> 0.0.4)
   rack-test (~> 1.1)
+  rake (~> 13.0, >= 13.0.3)
   roda (>= 3.19)
   rspec (~> 3.10)
   rubocop (~> 1.11)
