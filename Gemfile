@@ -19,6 +19,7 @@ gem 'sequel_secure_password', '~> 0.2.15'
 gem 'sequel-seed', '~> 1.1', '>= 1.1.2'
 gem 'rack-ougai', '~> 0.2.1', git: 'https://github.com/prog-supdex/rack-ougai.git', branch: 'add_body_to_log'
 gem 'rack-request-id', '~> 0.0.4'
+gem 'prometheus-client', '~> 2.1'
 
 group :development, :test do
   gem 'rack-test', '~> 1.1'

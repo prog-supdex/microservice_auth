@@ -3,8 +3,8 @@
     gather_facts: no
     vars:
       image: auth
-      docker_user: prog-supdex
-      docker_password: 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
+      docker_user: '{{ lookup("env", "DOCKER_USER") }}'
+      docker_password: '{{ lookup("env", "DOCKER_PASSWORD") }}'
       registry: docker.pkg.github.com
       repository: '{{ registry }}/{{ docker_user }}/microservice_auth/{{ image }}'
     tasks:
